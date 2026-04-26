@@ -1,0 +1,19 @@
+ #RewriteEngine on
+    
+    #RewriteRule ^index.php/ - [L,R=404]
+    
+    #RewriteCond %{REQUEST_FILENAME} !-f
+    #RewriteCond %{REQUEST_FILENAME} !-d
+    
+    #RewriteRule . index.php
+
+RewriteEngine On
+RewriteBase /
+
+# /admin so'rovlarini backend ga yo'naltir
+RewriteCond %{REQUEST_URI} ^/admin
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]

@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteBase /admin/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+# Bu qator gii uchun ham ishlaydi
+
