@@ -15,6 +15,18 @@ class SignupForm extends Model
     public $email;
     public $password;
 
+    public function init()
+    {
+        $this->on(User::EVENT_NEW_USER_REGISTERED, [$this, 'sendSMS']);
+        parent::init();
+    }
+
+    public function sendSMS($event)
+    {
+        echo 'bu send sms eventi';
+        
+    }
+
 
     /**
      * {@inheritdoc}
@@ -52,12 +64,18 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
-        // $user->role = User::ROLE_USER;
+        $user->role = User::ROLE_USER;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        return $user->save() && $this->sendEmail($user);
+        if($user->save()){
+            $this->trigger(User::EVENT_NEW_USER_REGISTERED);
+            return true;
+        }
+        return false;
+
+        // return $user->save() && $this->sendEmail($user);
     }
 
     /**

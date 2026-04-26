@@ -33,6 +33,8 @@ class User extends ActiveRecord implements IdentityInterface
     public const ROLE_ADMIN = "admin";
     public const ROLE_USER = "user";
     public const ROLE_MODERATOR = "moderator";
+    public const EVENT_NEW_USER_REGISTERED = "newUserRegister";
+
     /**
      * {@inheritdoc}
      */
