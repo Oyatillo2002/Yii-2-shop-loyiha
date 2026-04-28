@@ -2,8 +2,6 @@
 
 namespace api\models;
 
-use Override;
-
 class Product extends \common\models\Product 
 {
     public function fields()
