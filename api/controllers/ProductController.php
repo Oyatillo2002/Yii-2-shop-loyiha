@@ -2,11 +2,10 @@
 
 namespace api\controllers;
 
-use common\models\Product;
+use api\models\Product;
 use yii\data\ActiveDataProvider;
-use yii\rest\Controller;
 
-class ProductController extends Controller
+class ProductController extends MyController
 {
     public function actionIndex()
     {
