@@ -1,8 +1,9 @@
 <?php
 
-namespace api\controllers;
+namespace api\modules\v2\controllers;
 
-use api\models\Product;
+use api\controllers\MyController;
+use api\modules\v2\models\Product;
 use yii\data\ActiveDataProvider;
 
 class ProductController extends MyController
@@ -16,4 +17,5 @@ class ProductController extends MyController
         return $dataProvider;
     }
 }
+
 ?>

@@ -12,6 +12,14 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
+    'modules' => [
+        'v1' => [
+            'class' => 'api\modules\v1\Api',
+        ],
+        'v2' => [
+            'class' => 'api\modules\v2\Api',
+        ],
+    ],
     'components' => [
         'request' => [
             'parsers' => [
@@ -53,7 +61,8 @@ return [
                     'controller' => [
                         'user',
                         'category',
-                        'product',
+                        'v1/product',
+                        'v2/product',
                     ],
                     'pluralize' => true,  // /users yoki /user ishlaydi
                     'extraPatterns' => [
